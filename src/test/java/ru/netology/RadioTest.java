@@ -9,9 +9,9 @@ class RadioTest {
     @Test
     void nextStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(radio.getMaxVolume());
         radio.nextStation();
-        assertEquals(0,radio.getCurrentStation());
+        assertEquals(radio.getMinVolume(),radio.getCurrentStation());
         radio.nextStation();
         assertEquals(1,radio.getCurrentStation());
     }
@@ -19,9 +19,9 @@ class RadioTest {
     @Test
     void prevStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(0);
+        radio.setCurrentStation(radio.getMinVolume());
         radio.prevStation();
-        assertEquals(9,radio.getCurrentStation());
+        assertEquals(radio.getMaxVolume(),radio.getCurrentStation());
         radio.prevStation();
         assertEquals(8,radio.getCurrentStation());
     }

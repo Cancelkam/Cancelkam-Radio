@@ -2,38 +2,47 @@ package ru.netology;
 
 public class Radio {
 
-    int CurrentStation;
-    int VolumeLevel;
+    private int currentStation;
+    private int maxVolume = 9;
+    private int minVolume = 0;
 
     public int getCurrentStation() {
-        return CurrentStation;
+        return currentStation;
     }
 
     public void setCurrentStation(int currentStation) {
-        CurrentStation = currentStation;
+        this.currentStation = currentStation;
     }
 
-    public void nextStation (){
-    if (this.CurrentStation == 9) {
-        this.CurrentStation=0;
-        return;
-    }
-        this.CurrentStation++;
+    public int getMaxVolume() {
+        return maxVolume;
     }
 
-    public void prevStation (){
-        if (this.CurrentStation == 0) {
-            this.CurrentStation=9;
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
+    }
+
+    public void nextStation(){
+        if (this.currentStation == this.maxVolume){
+            this.currentStation = this.minVolume;
             return;
         }
-        this.CurrentStation--;
+        this.currentStation++;
     }
 
-    public int getVolumeLevel() {
-        return VolumeLevel;
-    }
-
-    public void setVolumeLevel(int volumeLevel) {
-        VolumeLevel = volumeLevel;
+    public void prevStation(){
+        if(this.currentStation == this.minVolume){
+            this.currentStation = this.maxVolume;
+            return;
+        }
+        this.currentStation--;
     }
 }
