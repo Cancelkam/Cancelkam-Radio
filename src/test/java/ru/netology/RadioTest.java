@@ -47,4 +47,22 @@ class RadioTest {
         radio.decreaseCurrentVolume();
         assertEquals(4,radio.getCurrentVolume());
     }
+
+    @Test
+    void setCurrentVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(11);
+        assertEquals(0, radio.getCurrentVolume());
+        radio.setCurrentVolume(-1);
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    void setCurrentStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(10);
+        assertEquals(0, radio.getCurrentStation());
+        radio.setCurrentStation(-1);
+        assertEquals(0, radio.getCurrentStation());
+    }
 }
